@@ -1,3 +1,5 @@
+import { CarItem } from "./CarItem";
+
 export interface CarOrder {
   id: number;
   client_name: string;
@@ -5,4 +7,5 @@ export interface CarOrder {
   client_email: string;
   date: Date;
   total: number;
+  items: CarItem[];
 }

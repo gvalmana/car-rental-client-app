@@ -1,6 +1,7 @@
 import { Product } from "./Product";
 
 export interface CarItem {
-  products: Product[];
+  product: Product;
   quantity: number;
+  total: number;
 }

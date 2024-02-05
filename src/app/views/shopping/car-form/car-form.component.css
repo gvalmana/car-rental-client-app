@@ -1,0 +1,14 @@
+.preview {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 0;
+}
+
+input.form-control {
+  text-align: right;
+}
