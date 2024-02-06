@@ -1,5 +1,5 @@
 <app-product-modal *ngIf="selectedProduct" [item] = "selectedProduct"></app-product-modal>
-<app-send-order-form [showSendOrderForm]="showSendOrderForm" [carItems]="itemsFiltered()"></app-send-order-form>
+<app-send-order-form [showSendOrderForm]="showSendOrderForm" [carItems]="itemsFiltered()" (showSendOrderFormChange)="toogleSendOrderForm($event)"></app-send-order-form>
 <div class="container mt-5">
   <div class="row mt-5">
     <div class="col-md-8">

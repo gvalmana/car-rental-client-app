@@ -84,8 +84,11 @@ export class CarFormComponent {
       });
   }
 
-  public toogleSendOrderForm() {
+  public toogleSendOrderForm(reset: boolean= false) {
     this.showSendOrderForm = !this.showSendOrderForm;
+    if (reset) {
+      this.cleanPreview();
+    }
   }
 
   public hasQuantity() : boolean{

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductServiceService } from '../../../services/product-service.service';
 import { CarItem } from '../../../entities/CarItem';
 import { CarOrder } from '../../../entities/CarOrder';
@@ -24,6 +24,7 @@ export class SendOrderFormComponent {
   };
   @Input() public carItems: CarItem[] = [];
   @Input() public showSendOrderForm: boolean = false;
+  @Output() public showSendOrderFormChange = new EventEmitter<boolean>();
   constructor(private _productService: ProductServiceService) {}
 
   sendOrder() {
@@ -32,6 +33,7 @@ export class SendOrderFormComponent {
       Swal.fire(response.message, '', 'success');
     });
     this.closeModal();
+    this.showSendOrderFormChange.emit(true);
   }
 
   closeModal() {
