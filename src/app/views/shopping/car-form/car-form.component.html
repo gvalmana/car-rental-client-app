@@ -16,7 +16,7 @@
           </thead>
           <tbody class="table-group-divider">
             <tr *ngFor="let item of items" class="align-bottom" ngClass="">
-              <td><button class="btn btn-outline-primary btn-sm" (click)="showProduct(item)"><i class="fa fa-eye"></i></button></td>
+              <td><button class="btn btn-outline-primary btn-sm" (click)="showModal(item.product)"><i class="fa fa-eye"></i></button></td>
               <td>{{ item.product.name }}</td>
               <td>
                 <input
