@@ -87,4 +87,12 @@ export class CarFormComponent {
   public toogleSendOrderForm() {
     this.showSendOrderForm = !this.showSendOrderForm;
   }
+
+  public hasQuantity() : boolean{
+    return this.items.every((item) => item.quantity == 0);
+  }
+
+  itemsFiltered() {
+    return this.items.filter((item) => item.quantity > 0);
+  }
 }

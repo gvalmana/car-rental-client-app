@@ -1,5 +1,5 @@
 <app-product-modal *ngIf="selectedProduct" [item] = "selectedProduct"></app-product-modal>
-<app-send-order-form [showSendOrderForm]="showSendOrderForm" [carItems]="items"></app-send-order-form>
+<app-send-order-form [showSendOrderForm]="showSendOrderForm" [carItems]="itemsFiltered()"></app-send-order-form>
 <div class="container mt-5">
   <div class="row mt-5">
     <div class="col-md-8">
@@ -71,7 +71,7 @@
           Total: <span id="preview-total">$ {{ precio_total }}</span>
         </p>
         <div class="d-grid gap-2 px-4">
-          <button class="btn btn-success btn-lg" (click)="sendOrder()">
+          <button class="btn btn-success btn-lg" (click)="sendOrder()" [disabled]="hasQuantity()">
             <i class="fa fa-shopping-cart"></i> Comprar
           </button>
         </div>
