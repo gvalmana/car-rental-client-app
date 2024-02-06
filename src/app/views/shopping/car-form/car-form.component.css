@@ -12,3 +12,14 @@
 input.form-control {
   text-align: right;
 }
+
+th {
+  text-align: justify;
+  padding: 1px;
+}
+th.actions {
+  text-align: center;
+}
+.fa {
+  cursor: pointer;
+}

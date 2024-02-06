@@ -1,1 +1,29 @@
-<p>product-modal works!</p>
+<div class="abrir-modal animation fadeIn" *ngIf="modalService.showModal">
+  <div class="modal" tabindex="-1" style="display: block;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <ul *ngIf="product" class="list-group mb-3">
+                  <li class="list-group-item">Name: {{product.name}}</li>
+                  <li class="list-group-item">Code: {{product.code}}</li>
+                  <li class="list-group-item">Description: {{product.description}}</li>
+                  <li class="list-group-item">Price: {{product.price | currency}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

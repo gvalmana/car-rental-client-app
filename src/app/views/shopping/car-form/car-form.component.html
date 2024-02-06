@@ -1,33 +1,78 @@
-<div class="container-fluid mt-5">
+<app-product-modal *ngIf="selectedProduct" [product] = "selectedProduct"></app-product-modal>
+<div class="container mt-5">
   <div class="row mt-5">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="card-body">
-        <table class="table table-hover">
-          <thead>
+        <table class="table table-sm">
+          <caption>
+            {{caption}}
+          </caption>
+          <thead class="table-light">
+            <th>#</th>
             <th>Producto</th>
             <th>Cantidad</th>
-            <th>Precio</th>
-            <th colspan="2">Acciones</th>
+            <th>$ Precio</th>
+            <th colspan="2" class="actions">Acciones</th>
           </thead>
-          <tbody>
-            <tr *ngFor="let item of items">
-              <td>{{item.product.name}}</td>
-              <td><input class="form-control" type="text" [(ngModel)]="item.quantity" name="quantity" #quantity="ngModel"></td>
-              <td><label for="" class="form-label">{{item.product.price}}</label></td>
-              <td><button class="btn btn-success btn-outline" (click)="removeItem(item)"><span class="fa fa-plus"></span></button></td>
-              <td><button class="btn btn-danger btn-outline" (click)="removeItem(item)"><span class="fa fa-minus"></span></button></td>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let item of items" class="align-bottom" ngClass="">
+              <td><button class="btn btn-outline-primary btn-sm" (click)="showProduct(item)"><i class="fa fa-eye"></i></button></td>
+              <td>{{ item.product.name }}</td>
+              <td>
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="item.quantity"
+                  name="quantity"
+                  #quantity="ngModel"
+                />
+              </td>
+              <td>
+                <label for="" class="form-label">{{
+                  item.product.price
+                }}</label>
+              </td>
+              <div class="btn-toolbar" role="toolbar">
+              <td>
+                <button
+                  class="btn btn-outline-success btn-sm"
+                  (click)="addItem(item)"
+                >
+                  <i class="fa fa-plus"></i>
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="removeItem(item)"
+                  [disabled]="item.quantity == 0"
+                >
+                  <span class="fa fa-minus"></span>
+                </button>
+              </td>
+              </div>
             </tr>
           </tbody>
         </table>
+
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="preview">
-        <h3>Vista previa</h3>
-        <hr>
-        <p>Nombre: <span id="preview-nombre"></span></p>
-        <p>Email: <span id="preview-email"></span></p>
-        <p>Mensaje: <span id="preview-mensaje"></span></p>
+        <h3>Valor total</h3>
+        <hr />
+        <p>Precio: <span id="preview-precio"></span>$ {{ total }}</p>
+        <p>
+          Impuestos: <span id="preview-impuestos">{{ impuestos }} %</span>
+        </p>
+        <p>
+          Total: <span id="preview-total">$ {{ precio_total }}</span>
+        </p>
+        <div class="d-grid gap-2 px-4">
+          <button class="btn btn-success btn-lg" (click)="cotizar()">
+            <i class="fa fa-shopping-cart"></i> Comprar
+          </button>
+        </div>
       </div>
     </div>
   </div>
