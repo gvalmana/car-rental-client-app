@@ -67,7 +67,6 @@ export class ProductServiceService {
     order.products.push(...products);
     return this.http.post(`${this.urlEndpoint}/cars/order`, order, { headers: this.httpHeaders }).pipe(
       map((response: any) => {
-        console.log(response);
         return response;
       }),
       catchError(e => {
