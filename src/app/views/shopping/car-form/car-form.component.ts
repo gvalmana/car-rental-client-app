@@ -36,10 +36,6 @@ export class CarFormComponent {
     this.updatePreview();
   }
 
-  public cotizar() {
-    console.log('COMENZANDO A COTIZAR');
-  }
-
   public updatePreview() {
     this.total = 0;
     let total_items = 0;
@@ -55,10 +51,6 @@ export class CarFormComponent {
     this.precio_total = this.total + (this.total * this.impuestos) / 100;
   }
 
-  public showProduct(item: CarItem) {
-    console.log(item);
-  }
-
   public cleanPreview() {
     this.items.forEach((item) => {
       item.quantity = 0;
@@ -69,6 +61,10 @@ export class CarFormComponent {
   showModal(item: CarItem): void {
     this.selectedProduct = item;
     this._modalService.show();
+  }
+
+  public sendOrder() {
+    this.cleanPreview();
   }
 
   ngOnInit(): void {

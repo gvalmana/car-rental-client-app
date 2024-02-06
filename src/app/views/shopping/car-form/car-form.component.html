@@ -16,7 +16,7 @@
           </thead>
           <tbody class="table-group-divider">
             <tr *ngFor="let item of items" class="align-bottom" ngClass="">
-              <td><button class="btn btn-outline-primary btn-sm" (click)="showModal(item)"><i class="fa fa-eye"></i></button></td>
+              <td><button class="btn btn-outline-primary btn-sm actions" (click)="showModal(item)"><i class="fa fa-eye"></i></button></td>
               <td>{{ item.product.name }}</td>
               <td>
                 <input
@@ -36,7 +36,7 @@
               <div class="btn-toolbar" role="toolbar">
               <td>
                 <button
-                  class="btn btn-outline-success btn-sm"
+                  class="btn btn-outline-success btn-sm actions"
                   (click)="addItem(item)"
                 >
                   <i class="fa fa-plus"></i>
@@ -44,7 +44,7 @@
               </td>
               <td>
                 <button
-                  class="btn btn-outline-danger btn-sm"
+                  class="btn btn-outline-danger btn-sm actions"
                   (click)="removeItem(item)"
                   [disabled]="item.quantity == 0"
                 >
@@ -70,7 +70,7 @@
           Total: <span id="preview-total">$ {{ precio_total }}</span>
         </p>
         <div class="d-grid gap-2 px-4">
-          <button class="btn btn-success btn-lg" (click)="cotizar()">
+          <button class="btn btn-success btn-lg" (click)="sendOrder()">
             <i class="fa fa-shopping-cart"></i> Comprar
           </button>
         </div>

@@ -20,6 +20,7 @@ th {
 th.actions {
   text-align: center;
 }
-.fa {
-  cursor: pointer;
+
+button.actions {
+  border-radius: 50%;
 }
