@@ -7,14 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { Product } from '../../../entities/Product';
 import { ProducModalServiceService } from '../../../services/produc-modal-service.service';
+import { SendOrderFormComponent } from '../send-order-form/send-order-form.component';
 
 @Component({
   selector: 'app-car-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, ProductModalComponent],
+  imports: [CommonModule, FormsModule, ProductModalComponent, SendOrderFormComponent],
   templateUrl: './car-form.component.html',
   styleUrl: './car-form.component.css',
 })
+
 export class CarFormComponent {
   public title: string = 'Car Form';
   public items: CarItem[] = [];
@@ -24,6 +26,7 @@ export class CarFormComponent {
   public total: number = 0;
   public caption: string = 'Selecione la cantidad de productos';
   public selectedProduct: CarItem | undefined;
+  public showSendOrderForm: boolean = false;
   constructor(private prouductService: ProductServiceService, private _modalService: ProducModalServiceService) {}
 
   public addItem(item: CarItem) {
@@ -64,7 +67,7 @@ export class CarFormComponent {
   }
 
   public sendOrder() {
-    this.cleanPreview();
+    this.toogleSendOrderForm();
   }
 
   ngOnInit(): void {
@@ -79,5 +82,9 @@ export class CarFormComponent {
           };
         });
       });
+  }
+
+  public toogleSendOrderForm() {
+    this.showSendOrderForm = !this.showSendOrderForm;
   }
 }
