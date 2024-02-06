@@ -27,7 +27,6 @@ export class SendOrderFormComponent {
   constructor(private _productService: ProductServiceService) {}
 
   sendOrder() {
-    +console.log(this.orderData);
     this.orderData.items.push(...this.carItems);
     this._productService.sendOder(this.orderData).subscribe((response) => {
       Swal.fire(response.message, '', 'success');
