@@ -1,4 +1,4 @@
-<app-product-modal *ngIf="selectedProduct" [product] = "selectedProduct"></app-product-modal>
+<app-product-modal *ngIf="selectedProduct" [item] = "selectedProduct"></app-product-modal>
 <div class="container mt-5">
   <div class="row mt-5">
     <div class="col-md-8">
@@ -16,7 +16,7 @@
           </thead>
           <tbody class="table-group-divider">
             <tr *ngFor="let item of items" class="align-bottom" ngClass="">
-              <td><button class="btn btn-outline-primary btn-sm" (click)="showModal(item.product)"><i class="fa fa-eye"></i></button></td>
+              <td><button class="btn btn-outline-primary btn-sm" (click)="showModal(item)"><i class="fa fa-eye"></i></button></td>
               <td>{{ item.product.name }}</td>
               <td>
                 <input

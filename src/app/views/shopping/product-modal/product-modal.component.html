@@ -11,15 +11,18 @@
             <div class="card mb-3" style="max-width: 90%;">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img src="..." class="img-fluid rounded-start" alt="...">
+                  <img *ngIf="item.product.image" [src]="item.product.image" class="img-fluid" alt="{{item.product.name}}">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">Name: {{product.name}}</h5>
-                    <p class="card-text">Code: {{product.code}}</p>
-                    <p class="card-text"><small class="text-body-secondary">Description: {{product.description}}</small></p>
-                    <p class="card-text">Price: {{product.price | currency}}</p>
+                    <h5 class="card-title">Name: {{item.product.name}}</h5>
+                    <p class="card-text">Code: {{item.product.code}}</p>
+                    <p class="card-text"><small class="text-body-secondary">Description: {{item.product.description}}</small></p>
+                    <p class="card-text">Price: {{item.product.price | currency}}</p>
                   </div>
+                </div>
+                <div class="card-footer">
+                  <span class="card-text" style="float: right;">Total: {{item.product.price * item.quantity | currency}}</span>
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ export class CarFormComponent {
   public impuestos: number = 2;
   public total: number = 0;
   public caption: string = 'Selecione la cantidad de productos';
-  public selectedProduct: Product | undefined;
+  public selectedProduct: CarItem | undefined;
   constructor(private prouductService: ProductServiceService, private _modalService: ProducModalServiceService) {}
 
   public addItem(item: CarItem) {
@@ -66,8 +66,8 @@ export class CarFormComponent {
     this.updatePreview();
   }
 
-  showModal(product: Product): void {
-    this.selectedProduct = product;
+  showModal(item: CarItem): void {
+    this.selectedProduct = item;
     this._modalService.show();
   }
 
