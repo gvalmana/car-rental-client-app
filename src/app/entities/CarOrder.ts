@@ -8,4 +8,5 @@ export interface CarOrder {
   date: Date;
   total: number;
   items: CarItem[];
+  products: any[]
 }
