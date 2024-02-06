@@ -25,6 +25,7 @@
                   [(ngModel)]="item.quantity"
                   name="quantity"
                   #quantity="ngModel"
+                  (ngModelChange)="updatePreview()"
                 />
               </td>
               <td>
