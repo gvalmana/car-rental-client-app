@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class ProductServiceService {
-  private urlEndpoint: string = 'http://localhost:8000/api/v1';
+  private urlEndpoint: string = 'http://localhost:8081/api/v1';
   constructor(private http: HttpClient) {}
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
